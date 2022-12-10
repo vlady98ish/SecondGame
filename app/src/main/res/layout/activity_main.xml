@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background_space"
+        >
+
+    </ImageView>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--        Hearts layout-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_heart1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_heart" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_heart2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_heart" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_heart3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_heart" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bombs grid-->
+        <!--        Bomb Row 1-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_1_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_1_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_1_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_1_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_1_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 2-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_2_1"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_2_2"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_2_3"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_2_4"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_2_5"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 3-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_3_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_3_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_3_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_3_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_3_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 4-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_4_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_4_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_4_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_4_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_4_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--        Bomb Row 5-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_5_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_5_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_5_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_5_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_5_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 6-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_6_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_6_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_6_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_6_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_6_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 7-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_7_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_7_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_7_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_7_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_7_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 8-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_8_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_8_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_8_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_8_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_8_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 9-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_9_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_9_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_9_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_9_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_9_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Bomb Row 9-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_10_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_10_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_10_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_10_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_bomb_10_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_asteroid">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--        Plane Row-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_plane1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                android:src="@drawable/img_ufo">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_plane2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                android:src="@drawable/img_ufo">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_plane3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_ufo">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_plane4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_ufo">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_plane5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_ufo">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <!-- Buttons layout-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+
+            android:layout_weight="2"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/main_BTN_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="#FF0000"
+                    app:icon="@drawable/ic_left"
+                    app:iconTint="@color/white" />
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/main_BTN_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="#FF0000"
+                    android:layout_alignParentBottom="true"
+                    app:iconTint="@color/white"
+                    app:icon="@drawable/ic_right" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</RelativeLayout>
