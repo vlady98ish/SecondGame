@@ -57,7 +57,7 @@ public class RecordActivity extends AppCompatActivity {
         initViews();
 
         fragment_list.setCallBack_userInfo(callBack_userInfo);
-//        fragment_map.setCallBack_Map(callBack_map);
+
 
         getSupportFragmentManager().beginTransaction().add(R.id.panel_LAY_list, fragment_list).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.panel_LAY_map, fragment_map).commit();
@@ -81,14 +81,4 @@ public class RecordActivity extends AppCompatActivity {
     }
 
 
-//    CallBack_Map callBack_map = (lat, lon) -> {
-//        //Zoom to place
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(googleMap -> {
-//            LatLng latLng = new LatLng(lat,lon);
-//            googleMap.clear();
-//            googleMap.addMarker(new MarkerOptions().position(latLng).title("Played Here!"));
-//            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15), 5000, null);
-//        });
-//    };
 }
