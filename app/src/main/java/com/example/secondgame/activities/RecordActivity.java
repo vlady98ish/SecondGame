@@ -41,11 +41,7 @@ public class RecordActivity extends AppCompatActivity {
         public ListOfResults getResults() {
             return new Gson().fromJson(MySPV3.getInstance().getString("records", ""), ListOfResults.class);
         }
-//        @Override
-//        public void ZoomOnMap(double l, double x){
-//            callBack_map.mapClicked(l,x);
-//        }
-    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
