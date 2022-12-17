@@ -4,6 +4,7 @@ package com.example.secondgame.activities;
 import static com.example.secondgame.config.Config.ADD_SCORE;
 import static com.example.secondgame.config.Config.GAME_OVER;
 import static com.example.secondgame.config.Config.IMAGE_LINK;
+import static com.example.secondgame.config.Config.KEY_DELAY;
 import static com.example.secondgame.config.Config.KEY_LEFT;
 import static com.example.secondgame.config.Config.KEY_MODE;
 import static com.example.secondgame.config.Config.KEY_RIGHT;
@@ -58,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView main_LBL_score;
 
-    private final String KEY_DELAY = "KEY_DELAY";
-
-
-
-
-
 
     private int DELAY = 1000;
 
@@ -87,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
         GPS.init(MainActivity.this);
 
-        MyImageUtils.getInstance().load(IMAGE_LINK,backgroundImage);
+        MyImageUtils.getInstance().load(IMAGE_LINK, backgroundImage);
 
     }
 
     private void getDataFromPrevIntent() {
         Intent prevIntent = getIntent();
         this.mode = prevIntent.getExtras().getInt(KEY_MODE);
-        this.DELAY = prevIntent.getExtras().getInt(KEY_DELAY,1000);
+        this.DELAY = prevIntent.getExtras().getInt(KEY_DELAY, 1000);
     }
 
     private SensorDetector.CallBack_move callBack_move = new SensorDetector.CallBack_move() {
@@ -136,16 +131,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        stopTimer();
-
-        GPS.getInstance().stop();
-
         backgroundMusic.pause();
         if (mode == 1) {
             sensorDetector.stop();
         }
 
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopTimer();
+        GPS.getInstance().stop();
     }
 
 
@@ -184,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             crashSound.start();
             MySignal.getInstance().vibrate();
         }
-        if( gameManager.checkIsCoin()){
+        if (gameManager.checkIsCoin()) {
             toast(ADD_SCORE);
             crashSound = MediaPlayer.create(MainActivity.this, R.raw.coin_sound);
             crashSound.start();
@@ -195,9 +193,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void updateScore(){
-        main_LBL_score.setText("Score: "+ gameManager.getScore());
+    private void updateScore() {
+        main_LBL_score.setText("Score: " + gameManager.getScore());
     }
+
     private void gameOver() {
         toast(GAME_OVER);
         changeActivity();
@@ -230,12 +229,10 @@ public class MainActivity extends AppCompatActivity {
                 if (type == Type.VISIBLE) {
                     items[i][j].getImage().setVisibility(View.VISIBLE);
                     items[i][j].getImage().setImageResource(R.drawable.img_asteroid);
-                }
-                else if( type == Type.COIN){
+                } else if (type == Type.COIN) {
                     items[i][j].getImage().setVisibility(View.VISIBLE);
                     items[i][j].getImage().setImageResource(R.drawable.img_coin);
-                }
-                else {
+                } else {
                     items[i][j].getImage().setVisibility(View.INVISIBLE);
                 }
 
@@ -335,9 +332,6 @@ public class MainActivity extends AppCompatActivity {
         backgroundMusic.setLooping(true);
         backgroundMusic.setVolume(0.4f, 0.4f);
     }
-
-
-
 
 
 }

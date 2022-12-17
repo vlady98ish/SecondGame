@@ -6,7 +6,7 @@ import com.example.secondgame.utils.MySPV3;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class DataManager {
 
@@ -31,7 +31,7 @@ public class DataManager {
     }
 
     private static ArrayList<Result> sortResults(ListOfResults listOfResults) {
-        Collections.sort(listOfResults.getResults(), (r1, r2) -> Integer.compare(r2.getScore(), r1.getScore()));
+        listOfResults.getResults().sort((r1, r2) -> Integer.compare(r2.getScore(), r1.getScore()));
         return listOfResults.getResults();
     }
 

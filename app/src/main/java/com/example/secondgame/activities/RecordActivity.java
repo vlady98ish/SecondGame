@@ -9,47 +9,58 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.secondgame.DataManager;
 import com.example.secondgame.callbacks.CallBack_List;
 import com.example.secondgame.R;
 
+import com.example.secondgame.callbacks.CallBack_Map;
 import com.example.secondgame.fragments.Fragment_List;
+import com.example.secondgame.fragments.Fragment_Map;
 import com.example.secondgame.model.ListOfResults;
 import com.example.secondgame.model.Result;
 import com.example.secondgame.utils.MyImageUtils;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class RecordActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class RecordActivity extends AppCompatActivity {
 
     private Fragment_List fragment_list;
-
+    private Fragment_Map fragment_map;
 
     private Button exit;
     private Button menu;
 
-    private SupportMapFragment mapFragment;
+
     private ImageView background;
 
     CallBack_List callBack_userInfo = DataManager::getTopTenResults;
 
+    CallBack_Map callBack_map = map -> {
+        map.clear();
+        ListOfResults top10 = DataManager.getTopTenResults();
+        if (top10 != null) {
+            for (int i = 0; i < top10.size(); i++) {
+                Result result = top10.get(i);
+
+                map.addMarker(new MarkerOptions()
+                        .position(new LatLng(
+                                result.getX(),
+                                result.getY()))
+                        .title("" + i));
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
 
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
-        }
+
         fragment_list = new Fragment_List();
+        fragment_map = new Fragment_Map();
 
 
         findViews();
@@ -58,14 +69,19 @@ public class RecordActivity extends AppCompatActivity implements OnMapReadyCallb
         initViews();
 
         fragment_list.setCallBack_userInfo(callBack_userInfo);
+        fragment_map.setCallBack_map(callBack_map);
 
-        MyImageUtils.getInstance().load(IMAGE_LINK,background);
+        MyImageUtils.getInstance().load(IMAGE_LINK, background);
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.panel_LAY_list, fragment_list)
                 .commit();
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.panel_LAY_map, fragment_map)
+                .commit();
     }
 
     private void findViews() {
@@ -84,23 +100,6 @@ public class RecordActivity extends AppCompatActivity implements OnMapReadyCallb
         finish();
         Intent intent = new Intent(RecordActivity.this, StartMenuActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        googleMap.clear();
-        ListOfResults top10 = DataManager.getTopTenResults();
-        if (top10 != null) {
-            for (int i = 0; i < top10.size(); i++) {
-                Result result = top10.get(i);
-
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(
-                                result.getX(),
-                                result.getY()))
-                        .title("" + i));
-            }
-        }
     }
 
 

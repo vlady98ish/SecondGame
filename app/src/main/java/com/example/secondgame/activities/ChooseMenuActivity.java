@@ -1,7 +1,6 @@
 package com.example.secondgame.activities;
 
 
-
 import static com.example.secondgame.config.Config.KEY_MODE;
 import static com.example.secondgame.config.Config.START_IMAGE_LINK;
 
@@ -23,7 +22,6 @@ public class ChooseMenuActivity extends AppCompatActivity {
     private ImageView background;
 
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +30,7 @@ public class ChooseMenuActivity extends AppCompatActivity {
         findViews();
         initViews();
 
-        MyImageUtils.getInstance().load(START_IMAGE_LINK,background);
+        MyImageUtils.getInstance().load(START_IMAGE_LINK, background);
 
     }
 
@@ -58,8 +56,8 @@ public class ChooseMenuActivity extends AppCompatActivity {
         }
         intent.putExtra(KEY_MODE, mode);
         startActivity(intent);
-        }
-
     }
+
+}
 
 

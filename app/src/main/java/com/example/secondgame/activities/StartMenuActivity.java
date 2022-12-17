@@ -20,7 +20,6 @@ import com.example.secondgame.utils.MyImageUtils;
 public class StartMenuActivity extends AppCompatActivity {
 
 
-
     private ImageView background;
     private Button startGame_BTN;
 
@@ -34,7 +33,7 @@ public class StartMenuActivity extends AppCompatActivity {
 
         findViews();
         initViews();
-        MyImageUtils.getInstance().load(START_IMAGE_LINK,background);
+        MyImageUtils.getInstance().load(START_IMAGE_LINK, background);
         GPS.getInstance().checkPreferences(this);
     }
 

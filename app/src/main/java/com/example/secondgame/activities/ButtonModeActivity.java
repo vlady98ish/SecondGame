@@ -1,8 +1,6 @@
 package com.example.secondgame.activities;
 
 
-
-
 import static com.example.secondgame.config.Config.KEY_DELAY;
 import static com.example.secondgame.config.Config.KEY_MODE;
 import static com.example.secondgame.config.Config.START_IMAGE_LINK;
@@ -37,7 +35,7 @@ public class ButtonModeActivity extends AppCompatActivity {
         findViews();
         initViews();
 
-        MyImageUtils.getInstance().load(START_IMAGE_LINK,background);
+        MyImageUtils.getInstance().load(START_IMAGE_LINK, background);
 
     }
 
