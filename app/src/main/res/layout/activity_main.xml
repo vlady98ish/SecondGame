@@ -7,10 +7,10 @@
     tools:context=".activities.MainActivity">
 
     <ImageView
+        android:id="@+id/main_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_background_space"
         >
 
     </ImageView>
@@ -25,7 +25,17 @@
             android:gravity="end"
             android:orientation="horizontal"
             >
+            <TextView
+                android:id="@+id/main_LBL_score"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
 
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+
+                android:layout_weight="1"
+                android:fontFamily="@font/star_wars_galaxy"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_IMG_heart1"
                 android:layout_width="40dp"

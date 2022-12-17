@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.StartMenuActivity"
+    tools:context=".activities.ButtonModeActivity"
     >
 
 
     <ImageView
-        android:id="@+id/startMenu_IMG_background"
+        android:id="@+id/buttonMenu_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -31,15 +31,15 @@
     </TextView>
 
     <Button
-        android:id="@+id/startMenu_BTN_startGame"
+        android:id="@+id/buttonMenu_BTN_FastMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/startMenu_BTN_top10"
+        android:layout_above="@+id/buttonMenu_BTN_SlowMode"
         android:layout_centerInParent="true"
 
         android:backgroundTint="#1482E3"
         android:fontFamily="@font/star_wars_galaxy"
-        android:text="Start Game"
+        android:text="Fast Mode"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:layout_marginBottom="20dp"
@@ -50,17 +50,21 @@
 
 
     <Button
-        android:id="@+id/startMenu_BTN_top10"
+        android:id="@+id/buttonMenu_BTN_SlowMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#1483E4"
-        android:text="TOP 10"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="#1482E3"
         android:fontFamily="@font/star_wars_galaxy"
+        android:text="Slow Mode"
         android:textColor="@color/white"
-        android:textSize="28sp">
+        android:textSize="28sp"
+
+        >
+
     </Button>
 
 

@@ -1,59 +1,56 @@
 package com.example.secondgame.activities;
 
+import static com.example.secondgame.config.Config.IMAGE_LINK;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.Button;
+import android.widget.ImageView;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.secondgame.DataManager;
 import com.example.secondgame.callbacks.CallBack_List;
 import com.example.secondgame.R;
-import com.example.secondgame.callbacks.CallBack_Map;
+
 import com.example.secondgame.fragments.Fragment_List;
-import com.example.secondgame.fragments.Fragment_Map;
 import com.example.secondgame.model.ListOfResults;
-import com.example.secondgame.utils.MySPV3;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.example.secondgame.model.Result;
+import com.example.secondgame.utils.MyImageUtils;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.gson.Gson;
 
-public class RecordActivity extends AppCompatActivity {
+public class RecordActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Fragment_List fragment_list;
-    private Fragment_Map fragment_map;
+
 
     private Button exit;
     private Button menu;
 
+    private SupportMapFragment mapFragment;
+    private ImageView background;
 
-    CallBack_List callBack_userInfo = new CallBack_List() {
-        @Override
-        public void user(String name) {
+    CallBack_List callBack_userInfo = DataManager::getTopTenResults;
 
-        }
-
-        @Override
-        public ListOfResults getResults() {
-            return new Gson().fromJson(MySPV3.getInstance().getString("records", ""), ListOfResults.class);
-        }
-//        @Override
-//        public void ZoomOnMap(double l, double x){
-//            callBack_map.mapClicked(l,x);
-//        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
 
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
         fragment_list = new Fragment_List();
-        fragment_map = new Fragment_Map();
+
 
         findViews();
 
@@ -61,15 +58,20 @@ public class RecordActivity extends AppCompatActivity {
         initViews();
 
         fragment_list.setCallBack_userInfo(callBack_userInfo);
-//        fragment_map.setCallBack_Map(callBack_map);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.panel_LAY_list, fragment_list).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.panel_LAY_map, fragment_map).commit();
+        MyImageUtils.getInstance().load(IMAGE_LINK,background);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.panel_LAY_list, fragment_list)
+                .commit();
+
     }
 
     private void findViews() {
         menu = findViewById(R.id.record_BTN_menu);
         exit = findViewById(R.id.record_BTN_exit);
+        background = findViewById(R.id.record_IMG_background);
     }
 
     private void initViews() {
@@ -84,15 +86,22 @@ public class RecordActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        googleMap.clear();
+        ListOfResults top10 = DataManager.getTopTenResults();
+        if (top10 != null) {
+            for (int i = 0; i < top10.size(); i++) {
+                Result result = top10.get(i);
 
-//    CallBack_Map callBack_map = (lat, lon) -> {
-//        //Zoom to place
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(googleMap -> {
-//            LatLng latLng = new LatLng(lat,lon);
-//            googleMap.clear();
-//            googleMap.addMarker(new MarkerOptions().position(latLng).title("Played Here!"));
-//            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15), 5000, null);
-//        });
-//    };
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(
+                                result.getX(),
+                                result.getY()))
+                        .title("" + i));
+            }
+        }
+    }
+
+
 }

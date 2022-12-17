@@ -1,20 +1,26 @@
 package com.example.secondgame.activities;
 
 
+import static com.example.secondgame.config.Config.ADD_SCORE;
+import static com.example.secondgame.config.Config.GAME_OVER;
+import static com.example.secondgame.config.Config.IMAGE_LINK;
+import static com.example.secondgame.config.Config.KEY_LEFT;
+import static com.example.secondgame.config.Config.KEY_MODE;
+import static com.example.secondgame.config.Config.KEY_RIGHT;
+import static com.example.secondgame.config.Config.LOST_LIFE;
 
 import android.content.Intent;
 
 import android.media.MediaPlayer;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
-
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
-
 
 
 import com.example.secondgame.GameManager;
@@ -23,6 +29,7 @@ import com.example.secondgame.model.Type;
 import com.example.secondgame.callbacks.SensorDetector;
 import com.example.secondgame.model.Item;
 import com.example.secondgame.utils.GPS;
+import com.example.secondgame.utils.MyImageUtils;
 import com.example.secondgame.utils.MySignal;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -30,7 +37,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import java.util.Timer;
 import java.util.TimerTask;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
+
 public class MainActivity extends AppCompatActivity {
 
     final int ROW_COUNT = 10;
@@ -45,19 +52,20 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatImageView[][] main_MATRIX_bombs;
     private AppCompatImageView[] main_IMG_planes;
 
-
+    private ImageView backgroundImage;
     private ExtendedFloatingActionButton main_BTN_left;
     private ExtendedFloatingActionButton main_BTN_right;
 
+    private TextView main_LBL_score;
 
-    public static final String KEY_LEFT = "KEY_LEFT";
-    public static final String KEY_RIGHT = "KEY_RIGHT";
-    public final String GAME_OVER = "GAME OVER";
-    public final String LOST_LIFE = "You lost 1 life";
-    public static final String KEY_MODE = "KEY_MODE";
+    private final String KEY_DELAY = "KEY_DELAY";
 
 
-    final int DELAY = 1000;
+
+
+
+
+    private int DELAY = 1000;
 
     GameManager gameManager;
 
@@ -79,11 +87,14 @@ public class MainActivity extends AppCompatActivity {
 
         GPS.init(MainActivity.this);
 
+        MyImageUtils.getInstance().load(IMAGE_LINK,backgroundImage);
+
     }
 
     private void getDataFromPrevIntent() {
         Intent prevIntent = getIntent();
         this.mode = prevIntent.getExtras().getInt(KEY_MODE);
+        this.DELAY = prevIntent.getExtras().getInt(KEY_DELAY,1000);
     }
 
     private SensorDetector.CallBack_move callBack_move = new SensorDetector.CallBack_move() {
@@ -165,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI() {
         gameManager.updateTable();
+
         if (gameManager.checkIsWrong()) {
             renderHearts();
             toast(LOST_LIFE);
@@ -172,10 +184,20 @@ public class MainActivity extends AppCompatActivity {
             crashSound.start();
             MySignal.getInstance().vibrate();
         }
-
+        if( gameManager.checkIsCoin()){
+            toast(ADD_SCORE);
+            crashSound = MediaPlayer.create(MainActivity.this, R.raw.coin_sound);
+            crashSound.start();
+            MySignal.getInstance().vibrate();
+        }
+        updateScore();
         renderMatrix(gameManager.getMatrix());
     }
 
+
+    private void updateScore(){
+        main_LBL_score.setText("Score: "+ gameManager.getScore());
+    }
     private void gameOver() {
         toast(GAME_OVER);
         changeActivity();
@@ -207,7 +229,13 @@ public class MainActivity extends AppCompatActivity {
                 Type type = items[i][j].getType();
                 if (type == Type.VISIBLE) {
                     items[i][j].getImage().setVisibility(View.VISIBLE);
-                } else {
+                    items[i][j].getImage().setImageResource(R.drawable.img_asteroid);
+                }
+                else if( type == Type.COIN){
+                    items[i][j].getImage().setVisibility(View.VISIBLE);
+                    items[i][j].getImage().setImageResource(R.drawable.img_coin);
+                }
+                else {
                     items[i][j].getImage().setVisibility(View.INVISIBLE);
                 }
 
@@ -295,6 +323,9 @@ public class MainActivity extends AppCompatActivity {
 
         initMatrixBombs();
 
+        main_LBL_score = findViewById(R.id.main_LBL_score);
+        backgroundImage = findViewById(R.id.main_IMG_background);
+
 
     }
     /*All FIND FUNCTIONS */
@@ -306,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*----------------------------------------------------------------------LOCATION ----------------------------------------------------------------------*/
+
 
 
 }

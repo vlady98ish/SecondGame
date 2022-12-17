@@ -1,6 +1,6 @@
 package com.example.secondgame.model;
 
-import java.time.LocalDateTime;
+
 
 public class Result {
     private String time;

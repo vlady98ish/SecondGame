@@ -13,11 +13,24 @@ public class ListOfResults {
     ;
 
     public ArrayList<Result> getResults() {
+
         return results;
     }
 
     public ListOfResults setResults(ArrayList<Result> results) {
         this.results = results;
         return this;
+    }
+
+    public int size() {
+        return results.size();
+    }
+
+    public void add(Result result){
+        results.add(result);
+    }
+
+    public Result get(int index) {
+        return results.get(index);
     }
 }

@@ -1,10 +1,12 @@
 package com.example.secondgame.utils;
 
+import static com.example.secondgame.config.Config.DB_FILE;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
 public class MySPV3 {
-    private static final String DB_FILE = "DB_FILE";
+
 
 
     private static MySPV3 mySPV3 = null;

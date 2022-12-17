@@ -2,6 +2,8 @@ package com.example.secondgame;
 
 import android.app.Application;
 
+import com.example.secondgame.utils.GPS;
+import com.example.secondgame.utils.MyImageUtils;
 import com.example.secondgame.utils.MySPV3;
 import com.example.secondgame.utils.MySignal;
 
@@ -12,6 +14,7 @@ public class MyApp extends Application {
 
         MySignal.init(this);
         MySPV3.init(this);
-
+        GPS.init(this);
+        MyImageUtils.initHelper(this);
     }
 }

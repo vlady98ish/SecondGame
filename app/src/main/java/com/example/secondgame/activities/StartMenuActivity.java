@@ -1,19 +1,27 @@
 package com.example.secondgame.activities;
 
-import android.Manifest;
+
+import static com.example.secondgame.config.Config.START_IMAGE_LINK;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+
 
 import com.example.secondgame.R;
+import com.example.secondgame.utils.GPS;
+import com.example.secondgame.utils.MyImageUtils;
 
 public class StartMenuActivity extends AppCompatActivity {
 
+
+
+    private ImageView background;
     private Button startGame_BTN;
 
     private Button top10_BTN;
@@ -26,7 +34,8 @@ public class StartMenuActivity extends AppCompatActivity {
 
         findViews();
         initViews();
-        getLocation();
+        MyImageUtils.getInstance().load(START_IMAGE_LINK,background);
+        GPS.getInstance().checkPreferences(this);
     }
 
 
@@ -47,6 +56,7 @@ public class StartMenuActivity extends AppCompatActivity {
     private void findViews() {
         startGame_BTN = findViewById(R.id.startMenu_BTN_startGame);
         top10_BTN = findViewById(R.id.startMenu_BTN_top10);
+        background = findViewById(R.id.startMenu_IMG_background);
 
     }
 
@@ -57,11 +67,4 @@ public class StartMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void getLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                StartMenuActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                StartMenuActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-        }
-    }
 }

@@ -40,16 +40,11 @@ public class Fragment_List extends Fragment {
 
     private void initViews() {
         ListOfResults data = callBack_userInfo.getResults();
+        if (data != null) {
+            ArrayAdapter<Result> adapter = new ArrayAdapter<Result>(getActivity(), android.R.layout.simple_list_item_1, data.getResults());
+            listView.setAdapter(adapter);
+        }
 
-        ArrayAdapter<Result> adapter = new ArrayAdapter<Result>(getActivity(), android.R.layout.simple_list_item_1, data.getResults());
-        listView.setAdapter(adapter);
-
-//        listView.setOnItemClickListener((parent, view1, position, id) ->
-//        {
-//            Result r = (Result) parent.getItemAtPosition(position);
-//            callBack_userInfo.ZoomOnMap(r.getX(), r.getY());
-//        });
-//
     }
 
 
